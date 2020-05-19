@@ -1,5 +1,15 @@
 //create a basic server
 
+const express = require("express");
+const path = require("path");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+//array vars to hold data
 // create a set of variables for holding the reservation
 var reservation = [
     {
@@ -23,3 +33,35 @@ var waitList = [
 
     }
 ]
+//routes for getting and posting
+
+//routes for displaying html
+app.get("/api/tables", function(req, res) {
+    var reserv = req.params.reservation;
+  
+    console.log(reserv);
+  
+    for (var i = 0; i < reservation.length; i++) {
+      if (reserv === reservation[i].routeName) {
+        return res.json(reservation[i]);
+      }
+    }
+  
+    return res.json(false);
+  });
+
+  app.get("/api/waitList", function(req, res) {
+    var wait = req.params.waitList;
+  
+    console.log(wait);
+  
+    for (var i = 0; i < waitList.length; i++) {
+      if (wait === waitList[i].routeName) {
+        return res.json(waitList[i]);
+      }
+    }
+  
+    return res.json(false);
+  });
+  
+//ajax call to express server
