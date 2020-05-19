@@ -34,6 +34,17 @@ var waitList = [
     }
 ]
 //routes for getting and posting
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "home.html"));
+});
+
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+app.get("/reserve", function (req, res) {
+    res.sendFile(path.join(__dirname, "reserve.html"));
+});
 
 //routes for displaying html
 app.get("/api/tables", function(req, res) {
@@ -49,7 +60,6 @@ app.get("/api/tables", function(req, res) {
   
     return res.json(false);
   });
-
   app.get("/api/waitList", function(req, res) {
     var wait = req.params.waitList;
   
