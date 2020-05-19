@@ -10,7 +10,6 @@ app.use(express.json());
 
 //routes for getting and posting
 
-//routes for displaying html
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
@@ -22,5 +21,6 @@ app.get("/tables", function(req, res) {
 app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
+//routes for displaying html
 
 //ajax call to express server
