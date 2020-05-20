@@ -1,3 +1,4 @@
+
 //create a basic server
 
 const express = require("express");
@@ -45,7 +46,6 @@ app.get("/tables", function(req, res) {
 app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
-//routes for displaying html
 
 //routes for displaying html
 app.get("/api/tables", function(req, res) {
@@ -75,4 +75,7 @@ app.get("/api/tables", function(req, res) {
     return res.json(false);
   });
   
-//ajax call to express server
+//Server begin listening
+app.listen(PORT, function () {
+  console.log("Listening on PORT " + PORT);
+});
