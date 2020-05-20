@@ -45,6 +45,7 @@ app.get("/tables", function(req, res) {
 app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
+//routes for displaying html
 
 //routes for displaying html
 app.get("/api/tables", function(req, res) {
